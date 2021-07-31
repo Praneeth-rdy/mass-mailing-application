@@ -1,24 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import React from 'react';
+import { TextField, Input } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+import Layout from './components/Layout';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: '25ch',
+  },
+  multilineTextField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: '80vw',
+  },
+}));
 
 function App() {
+  const classes = useStyles();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <div>
+        <form>
+          <div className={classes.root}>
+            <div>
+              <TextField
+                label="Subject"
+                id="outlined-margin-normal"
+                className={classes.textField}
+                helperText=""
+                margin="normal"
+                variant="outlined"
+              />
+              {/* <TextField
+                label="Email"
+                id="outlined-margin-normal"
+                className={classes.textField}
+                helperText=""
+                margin="normal"
+                variant="outlined"
+              /> */}
+              <Input
+                type='file'
+                label='sheet'
+                disableUnderline={true}
+                style={{ margin: 24 }} />
+            </div>
+            <div>
+              <TextField
+                label="Message"
+                id="outlined-margin-normal"
+                className={classes.multilineTextField}
+                helperText=""
+                margin="normal"
+                variant="outlined"
+                multiline
+                rows={3}
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </Layout>
   );
 }
 
