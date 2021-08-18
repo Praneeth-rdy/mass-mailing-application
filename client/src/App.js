@@ -4,6 +4,7 @@ import { TextField, Input } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from './components/Layout';
+import Styles from './styles/Index.module.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,10 +29,15 @@ function App() {
 
   return (
     <Layout>
-      <div>
+      <div className={Styles.formContainer}>
         <form>
           <div className={classes.root}>
             <div>
+              <Input
+                type='file'
+                label='sheet'
+                disableUnderline={true}
+                style={{ margin: 24 }} />
               <TextField
                 label="Subject"
                 id="outlined-margin-normal"
@@ -48,11 +54,6 @@ function App() {
                 margin="normal"
                 variant="outlined"
               /> */}
-              <Input
-                type='file'
-                label='sheet'
-                disableUnderline={true}
-                style={{ margin: 24 }} />
             </div>
             <div>
               <TextField
